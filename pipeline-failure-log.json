@@ -1,0 +1,51 @@
+{
+"docker_failure": [{
+  "timestamp": "2025-09-04T10:22:37Z",
+  "error_type": "docker_failure",
+  "product": "backend-app",
+  "stage": "build",
+  "error_msg": "Container exited with code 137",
+  "details": "The container was killed due to an out-of-memory (OOM) error. Memory usage exceeded allocated limit of 2GB.",
+  "suggestion": "Investigate memory leakage or allocate more resources.",
+  "host": "build-4",
+  "enviroment": ["Jenkins", "Gitlab", "Buildbot"],
+  "pipeline_url" : "https://git.internal.com/rnd-public/devops/mr-proper/-/jobs/8340538",
+  "contact_team": ["DevOps", "IT Helpdesk"]
+  }],
+"artifactory_failure" : [{
+  "timestamp": "2025-09-04T10:25:17Z",
+  "error_type": "artifactory_failure",
+  "product": "frontend-app",
+  "stage": "upload",
+  "error_msg": "Failed to upload artifact to Artifactory",
+  "details": "Artifactory responded with HTTP 507: Insufficient Storage. Disk space on Artifactory server is full.",
+  "suggestion": "Investigate storage or space issues or allocate more resources.",
+  "host": "artifactory-01",
+  "enviroment": ["Jenkins", "Gitlab", "Buildbot"],
+  "pipeline_url" : "https://git.internal.com/rnd-public/devops/mr-proper/-/jobs/8340537",
+  "contact_team": ["DevOps", "IT Helpdesk"]
+  }],
+"compilation_failure": [{
+    "timestamp": "2025-09-04T10:30:03Z",
+    "product": ["frontend-app", "backend-app"], 
+    "stage": "build",
+    "error_msg": "Compilation failed due to syntax error",
+    "details": "user_service.py:45: SyntaxError: invalid syntax. Missing colon at end of function definition.",
+    "suggestion": "Check syntax in user_service.py, line 45.",
+    "host": "build-01",
+    "enviroment": ["Jenkins", "Gitlab", "Buildbot"],
+    "pipeline_url" : "https://git.internal.com/rnd-public/devops/mr-proper/-/jobs/8340536",
+    "contact_team": ["Development", "DevOps"]
+  }, {
+    "timestamp": "2025-09-04T10:35:49Z",
+    "product": "frontend-app",
+    "stage": "build",
+    "error_msg": "Compilation failed: ModuleNotFoundError",
+    "details": "payment_processor.java: error: package com.stripe.api does not exist",
+    "suggestion": "Add 'com.stripe.api' dependency to pom.xml.",
+    "host": "build-01",
+    "enviroment": ["Jenkins", "Gitlab", "Buildbot"],
+    "pipeline_url" : "https://git.internal.com/rnd-public/devops/mr-proper/-/jobs/8340535",
+    "contact_team": ["Development", "DevOps"]
+  }]
+}
