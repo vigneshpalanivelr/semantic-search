@@ -1,0 +1,34 @@
+{
+  "system": {
+    "name": "DevOps Build Failure Analyzer",
+    "version": "1.0.0",
+    "description": "Semantic search system for CI/CD pipeline failure analysis"
+  },
+  "database": {
+    "vector_db_path": "chroma_db",
+    "collection_name": "build_failures",
+    "embedding_model": "all-MiniLM-L6-v2",
+    "reset_on_startup": true
+  },
+  "search": {
+    "default_top_k": 3,
+    "max_top_k": 10,
+    "similarity_threshold": 0.3,
+    "confidence_levels": {
+      "high": 0.8,
+      "medium": 0.6,
+      "low": 0.0
+    }
+  },
+  "data": {
+    "default_data_file": "pipeline-failure-log.json",
+    "supported_formats": ["json"],
+    "backup_enabled": false
+  },
+  "output": {
+    "default_format": "console",
+    "supported_formats": ["console", "json"],
+    "show_pipeline_urls": true,
+    "show_timestamps": true
+  }
+}
